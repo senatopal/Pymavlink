@@ -16,7 +16,7 @@ def get_alt():
         
 def takeoff(alt):
     vehicle.mav.command_long_send(vehicle.target_system, vehicle.target_component,mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, 0, 0, 0, 0, 0, alt)
-    
+    vehicle.set_mode("TAKEOFF")
     while True: 
         current_alt= get_alt()
         if current_alt< alt:
